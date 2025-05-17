@@ -17,12 +17,12 @@ function App() {
           <h1 className="text-center text-xl font-bold text-gray-500 mb-6">Pending</h1>
           <TaskCard 
             title="Build the website with static content"
-            dueOn="10th April"
+            dueDate="10th April"
             assigneeName="Rohit S" 
           />
           <TaskCard 
             title="Add blog"
-            dueOn="22nd March"
+            dueDate="22nd March"
             assigneeName="Rohit M" 
           />
 
@@ -35,12 +35,12 @@ function App() {
           <h1 className="text-center text-xl font-bold text-gray-500 mb-6">Done</h1>
           <TaskCard 
             title="Design the mockup"
-            completedOn="10th April"
+            completedAtDate="10th April"
             assigneeName="Rohit M"
           />
           <TaskCard 
             title="Get approval from principal"
-            completedOn="20th April"
+            completedAtDate="20th April"
             assigneeName="Ajay S" 
           />
         </div>
