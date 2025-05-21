@@ -1,21 +1,20 @@
 import React from "react";
 import type { TaskItem } from "./types";
 
-interface TaskFormProps{
+interface TaskFormProps {
   addTask: (task: TaskItem) => void;
-};
+}
 
-interface TaskFormState{
+interface TaskFormState {
   title: string;
-};
+}
 
-class TaskForm extends React.Component<TaskFormProps,TaskFormState>{
-
-  constructor(props: TaskFormProps){
+class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
+  constructor(props: TaskFormProps) {
     super(props);
     this.state = {
-      title: ""
-    }
+      title: "",
+    };
   }
 
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
@@ -31,13 +30,20 @@ class TaskForm extends React.Component<TaskFormProps,TaskFormState>{
     this.setState({ title: event.target.value });
   };
 
-  render(){
-    return(
+  render() {
+    return (
       <form onSubmit={this.addTask}>
-        <input type="text" className="border border-black p-1" value={this.state.title} onChange={this.titleChanged}/>
-        <button className="ml-2 bg-green-500 rounded p-1" type="submit">Add item</button>
+        <input
+          type="text"
+          className="border border-black p-1"
+          value={this.state.title}
+          onChange={this.titleChanged}
+        />
+        <button className="ml-2 bg-green-500 rounded p-1" type="submit">
+          Add item
+        </button>
       </form>
-    )
+    );
   }
 }
 

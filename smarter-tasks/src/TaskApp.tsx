@@ -3,6 +3,7 @@ import type { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface TaskAppProp {}
 interface TaskAppState {
   tasks: TaskItem[];

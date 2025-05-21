@@ -1,19 +1,24 @@
-import React from "react"
-import Task from "./Task"
+import React from "react";
+import Task from "./Task";
 import type { TaskItem } from "./types";
 
-interface Props{
+interface Props {
   tasks: TaskItem[];
 }
 
-interface State{}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface State {}
 
-class TaskList extends React.Component<Props, State>{
-  render(){
-    return <>
-      {this.props.tasks.map((task,id)=><Task key={id} title={task.title}/>)}
-    </>
+class TaskList extends React.Component<Props, State> {
+  render() {
+    return (
+      <>
+        {this.props.tasks.map((task, id) => (
+          <Task key={id} title={task.title} />
+        ))}
+      </>
+    );
   }
 }
 
-export default TaskList
+export default TaskList;
