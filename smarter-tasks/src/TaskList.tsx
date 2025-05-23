@@ -8,17 +8,18 @@ interface Props {
 
 const TaskList = (props: Props) => {
   return (
-    <>
+    <ul>
       {props.tasks.map((task, id) => (
         <Task
           key={id}
+          id={id}
           title={task.title}
           description={task.description}
           dueDate={task.dueDate}
           deleteTask={props.deleteTask}
         />
       ))}
-    </>
+    </ul>
   );
 };
 

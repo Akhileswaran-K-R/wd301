@@ -1,7 +1,7 @@
 import "./TaskCard.css";
 
 interface TaskProp {
-  key: number;
+  id: number;
   title: string;
   description: string;
   dueDate: string;
@@ -10,7 +10,7 @@ interface TaskProp {
 
 const Task = (props: TaskProp) => {
   return (
-    <div className="TaskItem shadow-md border border-slate-100 flex justify-between">
+    <li className="TaskItem shadow-md border border-slate-100 flex justify-between">
       <div>
         <h2 className="text-base font-bold my-1">{props.title}</h2>
         <p className="text-sm text-slate-500">Due Date: {props.dueDate}</p>
@@ -21,11 +21,11 @@ const Task = (props: TaskProp) => {
 
       <button
         className="deleteTaskButton"
-        onClick={() => props.deleteTask(props.key)}
+        onClick={() => props.deleteTask(props.id)}
       >
         Delete
       </button>
-    </div>
+    </li>
   );
 };
 

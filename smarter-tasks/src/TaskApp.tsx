@@ -21,13 +21,12 @@ const TaskApp = () => {
     });
   };
 
-  const deleteTask = (key: number) => {
-    const updatedTasks = taskAppState.tasks;
-    updatedTasks.splice(key, 1);
-    setTaskAppState({
-      tasks: updatedTasks,
-    });
-  };
+  const deleteTask = (id: number) => {
+  const updatedTasks = taskAppState.tasks.filter((_, index) => index !== id);
+  setTaskAppState({
+    tasks: updatedTasks,
+  });
+};
 
   return (
     <div className="container py-10 max-w-4xl mx-auto">
