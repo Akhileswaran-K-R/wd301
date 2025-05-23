@@ -8,81 +8,81 @@ interface TaskFormProps {
 interface TaskFormState {
   title: string;
   description: string;
-  dueDate: string; 
+  dueDate: string;
 }
 
-class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
-  constructor(props: TaskFormProps) {
-    super(props);
-    this.state = {
-      title: "",
-      description: "",
-      dueDate: "",
-    };
-  }
+const TaskForm = (props: TaskFormProps) => {
+  const [formState, setFormState] = React.useState<TaskFormState>({
+    title: "",
+    description: "",
+    dueDate: "",
+  });
 
-  addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
+  const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    setFormState({ ...formState, title: event.target.value });
+  };
+
+  const descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
+    event,
+  ) => {
+    setFormState({ ...formState, description: event.target.value });
+  };
+
+  const dueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (
+    event,
+  ) => {
+    setFormState({ ...formState, dueDate: event.target.value });
+  };
+
+  const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    const newTask = {
-      title: this.state.title,
-      description: this.state.description,
-      dueDate: this.state.dueDate
-    };
-    this.props.addTask(newTask);
-
-    this.setState({ 
-      title: "",
-      description: "",
-      dueDate: "",
-    });
+    if (formState.title.length === 0 || formState.dueDate.length === 0) {
+      return;
+    }
+    props.addTask(formState);
+    setFormState({ title: "", description: "", dueDate: "" });
   };
 
-  titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    this.setState({ title: event.target.value });
-  };
-
-  descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    this.setState({ description: event.target.value });
-  };
-
-  dueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    this.setState({ dueDate: event.target.value });
-  };
-
-  render() {
-    return (
-      <form onSubmit={this.addTask} className="space-y-4">
+  return (
+    <>
+      <form onSubmit={addTask} className="space-y-4">
         <div className="flex flex-col">
-          <label htmlFor="todoTitle" className="font-medium">Title</label>
+          <label htmlFor="todoTitle" className="font-medium">
+            Title
+          </label>
           <input
             type="text"
             id="todoTitle"
             className="border border-black p-2 rounded"
-            value={this.state.title}
-            onChange={this.titleChanged}
+            value={formState.title}
+            onChange={titleChanged}
             required
           />
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="todoDescription" className="font-medium">Description</label>
+          <label htmlFor="todoDescription" className="font-medium">
+            Description
+          </label>
           <input
             type="text"
             id="todoDescription"
             className="border border-black p-2 rounded"
-            value={this.state.description}
-            onChange={this.descriptionChanged}
+            value={formState.description}
+            onChange={descriptionChanged}
           />
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="todoDueDate" className="font-medium">Due Date</label>
+          <label htmlFor="todoDueDate" className="font-medium">
+            Due Date
+          </label>
           <input
             type="date"
             id="todoDueDate"
             className="border border-black p-2 rounded"
-            value={this.state.dueDate}
-            onChange={this.dueDateChanged}
+            value={formState.dueDate}
+            onChange={dueDateChanged}
             required
           />
         </div>
@@ -95,9 +95,8 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
           Add item
         </button>
       </form>
-
-    );
-  }
-}
+    </>
+  );
+};
 
 export default TaskForm;
