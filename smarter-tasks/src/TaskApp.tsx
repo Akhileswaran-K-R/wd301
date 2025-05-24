@@ -22,7 +22,7 @@ const TaskApp = () => {
   };
 
   const deleteTask = (id: number) => {
-  const updatedTasks = taskAppState.tasks.filter((_, index) => index !== id);
+  const updatedTasks = taskAppState.tasks.filter((task) => task.id !== id);
   setTaskAppState({
     tasks: updatedTasks,
   });
