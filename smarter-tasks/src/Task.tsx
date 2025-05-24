@@ -7,7 +7,7 @@ interface TaskProp {
 }
 
 const Task = (props: TaskProp) => {
-  const {item,deleteTask} = props;
+  const { item, deleteTask } = props;
   return (
     <li className="TaskItem shadow-md border border-slate-100 flex justify-between">
       <div>
@@ -20,10 +20,7 @@ const Task = (props: TaskProp) => {
         </p>
       </div>
 
-      <button
-        className="deleteTaskButton"
-        onClick={() => deleteTask(item.id)}
-      >
+      <button className="deleteTaskButton" onClick={() => deleteTask(item.id)}>
         Delete
       </button>
     </li>

@@ -4,7 +4,7 @@ const Header = () => {
       <div className="mx-auto px-4">
         <div className="flex justify-between">
           <div className="flex items-center w-1/3">
-          <a href="/home" className="ml-6 text-gray-300 hover:text-white">
+            <a href="/home" className="ml-6 text-gray-300 hover:text-white">
               Home
             </a>
             <a href="/tasks" className="ml-6 text-gray-300 hover:text-white">
@@ -16,9 +16,9 @@ const Header = () => {
           </div>
           <div className="flex items-center w-1/3 justify-end">
             <a href="/signin" className="ml-6 text-gray-300 hover:text-white">
-             Signout
+              Signout
             </a>
-         </div>
+          </div>
         </div>
       </div>
     </nav>

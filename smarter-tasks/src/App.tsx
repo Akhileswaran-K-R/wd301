@@ -1,4 +1,8 @@
-import { createBrowserRouter,RouterProvider,Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import TaskListPage from "./pages/TaskListPage";
 import Layout from "./Layout";
@@ -9,13 +13,13 @@ import Notfound from "./pages/Notfound";
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element: <Navigate to="/signin" replace/>,
-    errorElement: <Navigate to="/notfound" replace/>
+    path: "/",
+    element: <Navigate to="/signin" replace />,
+    errorElement: <Navigate to="/notfound" replace />,
   },
   {
     path: "/signin",
-    element: <Signin/>
+    element: <Signin />,
   },
   {
     element: (
@@ -26,28 +30,26 @@ const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        element: (<HomePage/>)
+        element: <HomePage />,
       },
       {
         path: "tasks",
-        element: (<TaskListPage/>)
+        element: <TaskListPage />,
       },
       {
         path: "tasks/:id",
-        element: (<TaskDetailsPage/>)
-      }
-    ]
+        element: <TaskDetailsPage />,
+      },
+    ],
   },
   {
     path: "/notfound",
-    element: <Notfound/>
-  }
+    element: <Notfound />,
+  },
 ]);
 
 function App() {
-  return (
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
