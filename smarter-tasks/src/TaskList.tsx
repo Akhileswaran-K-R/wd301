@@ -9,8 +9,7 @@ interface Props {
 const TaskList = (props: Props) => {
   return (
     <ul>
-      {props.tasks.map((task, id) => (
-
+      {props.tasks.map((task) => (
         <Task
           key={task.id}
           item={task}
