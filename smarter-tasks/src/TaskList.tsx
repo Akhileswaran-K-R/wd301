@@ -10,12 +10,10 @@ const TaskList = (props: Props) => {
   return (
     <ul>
       {props.tasks.map((task, id) => (
+
         <Task
-          key={id}
-          id={task.id}
-          title={task.title}
-          description={task.description}
-          dueDate={task.dueDate}
+          key={task.id}
+          item={task}
           deleteTask={props.deleteTask}
         />
       ))}
