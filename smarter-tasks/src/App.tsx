@@ -21,12 +21,12 @@ const router = createBrowserRouter([
     element: <Navigate to="/signup" replace />,
   },
   {
-    path:"/signup",
-    element:<Signup/>
+    path: "/signup",
+    element: <Signup />,
   },
   {
     path: "/signin",
-    element: <Signin/>
+    element: <Signin />,
   },
   {
     path: "/notfound",
@@ -36,14 +36,14 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <ProtectedRoute>
-        <Dashboard/>
+        <Dashboard />
       </ProtectedRoute>
-    )
+    ),
   },
   {
     path: "*",
     element: <Notfound />,
-  }
+  },
 ]);
 
 function App() {
