@@ -29,7 +29,7 @@ const SignupForm: React.FC = () => {
       }
 
       const data = await response.json();
-      if(!data.user){
+      if (!data.user) {
         throw new Error("Sign-up failed");
       }
       localStorage.setItem("authToken", data.token);
