@@ -1,7 +1,7 @@
 import React from "react";
 
 const Dashboard: React.FC = () => {
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = JSON.parse(localStorage.getItem("userData") || "");
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
