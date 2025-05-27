@@ -1,7 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
-  const userData = JSON.parse(localStorage.getItem("userData") || "");
+  const navigate = useNavigate();  
+  const rawUserData = localStorage.getItem("userData");
+
+  let userData;
+  try {
+    userData = rawUserData ? JSON.parse(rawUserData) : null;
+  } catch {
+    localStorage.removeItem("authToken");
+    navigate("/signin");
+  }
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
@@ -13,7 +23,7 @@ const Dashboard: React.FC = () => {
       <div className="flex flex-col items-center justify-center bg-gray-100 py-8">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Dashboard</h1>
         <a
-          href=""
+          href="/signin"
           id="logout-link"
           onClick={handleLogout}
           className="text-sm text-red-500 underline mb-6"
