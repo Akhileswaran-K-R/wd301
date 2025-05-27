@@ -1,7 +1,6 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
 } from "react-router-dom";
 // import HomePage from "./pages/HomePage";
 // import TaskListPage from "./pages/TaskListPage";
@@ -18,7 +17,7 @@ import Dashboard from "./pages/dashboard";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/signup" replace />,
+    element: <Signup/>,
   },
   {
     path: "/signup",

@@ -29,8 +29,9 @@ const SignupForm: React.FC = () => {
       }
 
       const data = await response.json();
-      if (!data.user) {
-        throw new Error("Sign-up failed");
+      if(data.errors){
+        navigate("/notfound");
+        return;
       }
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("userData", JSON.stringify(data.user));
