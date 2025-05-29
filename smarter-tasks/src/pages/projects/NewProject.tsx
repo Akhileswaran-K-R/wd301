@@ -10,7 +10,7 @@ type Inputs = {
 
 const NewProject = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const dispatchProjects = useProjectsDispatch();
 
   const openModal = () => {

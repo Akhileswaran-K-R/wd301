@@ -7,7 +7,7 @@ import {
 
 export default function MemberListItems() {
   const state: any = useMembersState();
-  const dispatch = useMembersDispatch();
+  const dispatchMembers = useMembersDispatch();
 
   const { members, isLoading, isError, errorMessage } = state;
 
@@ -37,7 +37,7 @@ export default function MemberListItems() {
           <button
             className="rounded-md bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
             onClick={() => {
-              deleteMember(dispatch, member.id);
+              deleteMember(dispatchMembers, member.id);
             }}
           >
             Delete

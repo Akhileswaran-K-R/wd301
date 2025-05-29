@@ -12,7 +12,7 @@ type Inputs = {
 
 const NewMember = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const dispatchMembers = useMembersDispatch();
 
   const openModal = () => {
