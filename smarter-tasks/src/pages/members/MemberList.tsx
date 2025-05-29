@@ -1,0 +1,21 @@
+import React, { useEffect } from "react";
+import { fetchMembers } from "../../context/members/actions";
+import { useMembersDispatch } from "../../context/members/context";
+import MemberListItems from "./MemberListItems";
+
+const MemberList: React.FC = () => {
+  const dispatchProjects = useMembersDispatch();
+
+  useEffect(() => {
+    fetchMembers(dispatchProjects);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div>
+      <MemberListItems />
+    </div>
+  );
+};
+
+export default MemberList;
