@@ -6,5 +6,5 @@ import { ThemeProvider } from "./context/theme.tsx";
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider>
     <App />
-  </ThemeProvider>
+  </ThemeProvider>,
 );

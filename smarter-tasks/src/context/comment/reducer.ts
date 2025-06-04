@@ -22,7 +22,7 @@ export const initialState: CommentListState = {
 
 export const commentReducer: Reducer<CommentListState, CommentActions> = (
   state = initialState,
-  action
+  action,
 ) => {
   switch (action.type) {
     case CommentListAvailableAction.FETCH_COMMENTS_REQUEST:

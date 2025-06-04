@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useProjectsState } from "../../context/projects/context";
 import { useTasksState, useTasksDispatch } from "../../context/task/context";
@@ -16,7 +16,7 @@ const ProjectDetails = () => {
   }, [projectID, taskDispatch]);
 
   const selectedProject = projectState?.projects.filter(
-    (project) => `${project.id}` === projectID
+    (project) => `${project.id}` === projectID,
   )?.[0];
 
   if (!selectedProject) {

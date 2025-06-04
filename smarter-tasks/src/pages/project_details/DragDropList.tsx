@@ -86,7 +86,7 @@ const DragDropList = (props: { data: ProjectData }) => {
         {props.data.columnOrder.map((colId) => {
           const column = props.data.columns[colId];
           const tasks = column.taskIDs.map(
-            (taskID) => props.data.tasks[taskID]
+            (taskID) => props.data.tasks[taskID],
           );
           return <Column key={column.id} column={column} tasks={tasks} />;
         })}

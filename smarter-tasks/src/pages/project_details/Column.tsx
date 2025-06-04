@@ -23,7 +23,7 @@ const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(
         {props.children}
       </div>
     );
-  }
+  },
 );
 
 interface Props {

@@ -10,7 +10,7 @@ import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
 
-import { CommentDetails, CommentListState } from "../../context/comment/types";
+import { CommentListState } from "../../context/comment/types";
 import {
   useCommentsDispatch,
   useCommentsState,
@@ -49,13 +49,13 @@ const TaskDetails = () => {
   const commentDispatch = useCommentsDispatch();
 
   const selectedProject = projectState?.projects.filter(
-    (project) => `${project.id}` === projectID
+    (project) => `${project.id}` === projectID,
   )[0];
 
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
 
   const [selectedPerson, setSelectedPerson] = useState(
-    selectedTask.assignedUserName ?? ""
+    selectedTask.assignedUserName ?? "",
   );
 
   useEffect(() => {
@@ -64,11 +64,7 @@ const TaskDetails = () => {
   }, [projectID, taskID, commentDispatch]);
 
   // Use react-form-hook to manage the form. Initialize with data from selectedTask.
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TaskFormUpdatePayload>({
+  const { register, handleSubmit } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,
       description: selectedTask.description,
@@ -93,7 +89,7 @@ const TaskDetails = () => {
       return;
     }
     const assignee = memberState?.members?.filter(
-      (member) => member.name === selectedPerson
+      (member) => member.name === selectedPerson,
     )?.[0];
 
     updateTask(taskDispatch, projectID ?? "", {
@@ -122,11 +118,11 @@ const TaskDetails = () => {
         {commentState.comments
           ?.sort(
             (a, b) =>
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
           )
           .map((comment) => {
             const author = memberState?.members?.find(
-              (member) => member.id === comment.owner
+              (member) => member.id === comment.owner,
             );
             return (
               <div key={comment.id} className="comment m-2 text-gray-700">
@@ -268,7 +264,7 @@ const TaskDetails = () => {
                               commentDispatch,
                               projectID ?? "",
                               taskID ?? "",
-                              { description: comment, owner: userData.id }
+                              { description: comment, owner: userData.id },
                             );
                             setComment("");
                           }}

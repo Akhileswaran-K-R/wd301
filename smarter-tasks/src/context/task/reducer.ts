@@ -11,7 +11,7 @@ export const initialState: TaskListState = {
 
 export const taskReducer: Reducer<TaskListState, TaskActions> = (
   state = initialState,
-  action
+  action,
 ) => {
   switch (action.type) {
     case TaskListAvailableAction.FETCH_TASKS_REQUEST:

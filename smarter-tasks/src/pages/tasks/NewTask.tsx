@@ -14,17 +14,13 @@ const NewTask = () => {
   const navigate = useNavigate();
 
   // Use react-hook-form to create form submission handler and state.
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TaskDetailsPayload>();
+  const { register, handleSubmit } = useForm<TaskDetailsPayload>();
   const projectState = useProjectsState();
   const taskDispatch = useTasksDispatch();
 
   // We do some sanity checks to make sure the `projectID` passed is a valid one
   const selectedProject = projectState?.projects.filter(
-    (project) => `${project.id}` === projectID
+    (project) => `${project.id}` === projectID,
   )?.[0];
   if (!selectedProject) {
     return <>No such Project!</>;

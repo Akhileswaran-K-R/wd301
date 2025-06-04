@@ -8,7 +8,7 @@ import { API_ENDPOINT } from "../../config/constants";
 export const refreshComments = async (
   dispatch: CommentDispatch,
   projectID: string,
-  taskID: string
+  taskID: string,
 ) => {
   const token = localStorage.getItem("authToken") ?? "";
   try {
@@ -20,7 +20,7 @@ export const refreshComments = async (
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     );
 
     if (!response.ok) {
@@ -47,7 +47,7 @@ export const addComment = async (
   dispatch: CommentDispatch,
   projectID: string,
   taskID: string,
-  comment: CommentDetailsPayload
+  comment: CommentDetailsPayload,
 ) => {
   const token = localStorage.getItem("authToken") ?? "";
 
@@ -62,7 +62,7 @@ export const addComment = async (
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(comment),
-      }
+      },
     );
 
     if (!response.ok) {
